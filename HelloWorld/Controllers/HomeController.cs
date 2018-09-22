@@ -12,11 +12,20 @@ namespace HelloWorld.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            ViewBag.CurrentTime = $"Current time is {System.DateTime.Now}";
+            var address = new Address
+            {
+                CityName = "Gdansk",
+                BuildingNumber =11,
+                StreetName = "Kołobrzeska"
+            };
+
+            return View(address);
         }
 
         public IActionResult About()
         {
+            ViewBag.Message = "Your application description page.";
             ViewData["Message"] = "Your application description page.";
 
             return View();
